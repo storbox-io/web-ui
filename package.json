@@ -1,0 +1,19 @@
+{
+  "name": "storbox-webui",
+  "version": "1.0.0",
+  "description": "Web UI for storBox",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/storbox-io/web-ui.git"
+  },
+  "author": "Alexander Mandera",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/storbox-io/web-ui/issues"
+  },
+  "homepage": "https://github.com/storbox-io/web-ui#readme"
+}
