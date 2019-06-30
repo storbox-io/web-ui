@@ -2,7 +2,7 @@ const socketIo = require('socket.io');
 const fs = require('fs');
 const {promisify} = require('util');
 const readdir = promisify(fs.readdir);
-const log = require('storbox-core').Log;
+const Log = require('storbox-core').Log;
 
 class SocketIO {
 
@@ -23,6 +23,7 @@ class SocketIO {
         let items = await readdir(`${__dirname}/handlers`);
 
         items.forEach((item) => {
+            if(item.indexOf(".js") === -1) return;
             let LoadedHandler = require(`${__dirname}/handlers/${item}`);
             let handler = new LoadedHandler();
 
@@ -32,7 +33,7 @@ class SocketIO {
     }
 
     initHandlers(socket) {
-        log.debug("New socket");
+        Log.debug("New socket");
         for(let channel in this._handlers) {
             socket.on(channel, msg => this._handlers[channel](socket, msg));
         }

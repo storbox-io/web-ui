@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {SocketIOService} from "./socket-io.service";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.less']
 })
 export class AppComponent {
+
+  constructor(private sio: SocketIOService) {}
 
 }

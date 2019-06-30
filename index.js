@@ -1,5 +1,7 @@
 const WebModule = require('storbox-core').WebModule;
 const Log = require('storbox-core').Log;
+const SocketIO = require('./io/SocketIO.class');
+const WebServer = require('./web/WebServer.class');
 
 class WebUIModule extends WebModule {
 
@@ -11,8 +13,14 @@ class WebUIModule extends WebModule {
         return "web";
     }
 
-    run(configPath) {
-        Log.info("Hello from WebUI!");
+    async run(configPath) {
+        let socketio = new SocketIO();
+        await socketio.loadHandlers();
+
+        let web = new WebServer(8080);
+        web.initSockets(socketio);
+        await web.run();
+        Log.info("Webserver is running");
     }
 
 }

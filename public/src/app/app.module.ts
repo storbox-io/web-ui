@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -11,6 +13,8 @@ import {FilesComponent} from "./box/files/files.component";
 import {HomeComponent} from "./box/home/home.component";
 import {SettingsComponent} from "./box/settings/settings.component";
 import { PasswordResetComponent } from './password-reset/password-reset.component';
+
+const config: SocketIoConfig = { url: 'http://localhost:8080', options: {} };
 
 @NgModule({
   declarations: [
@@ -26,7 +30,8 @@ import { PasswordResetComponent } from './password-reset/password-reset.componen
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SocketIoModule.forRoot(config)
   ],
   providers: [],
   bootstrap: [AppComponent]
