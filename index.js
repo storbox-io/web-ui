@@ -15,7 +15,6 @@ class WebUIModule extends WebModule {
 
     async run(configPath) {
         let socketio = new SocketIO();
-        await socketio.loadHandlers();
 
         let web = new WebServer(8080);
         web.initSockets(socketio);

@@ -19,7 +19,7 @@ class SocketIO {
     }
 
     async loadHandlers() {
-        log.debug("Loading socket handlers");
+        Log.debug("Loading socket handlers");
         let items = await readdir(`${__dirname}/handlers`);
 
         items.forEach((item) => {
@@ -28,7 +28,7 @@ class SocketIO {
             let handler = new LoadedHandler();
 
             this._handlers[handler.getChannel()] = (socket, msg) => handler.handle(socket, msg);
-            log.debug("Loaded socket handler for \"" + handler.getChannel() + "\"");
+            Log.debug("Loaded socket handler for \"" + handler.getChannel() + "\"");
         });
     }
 

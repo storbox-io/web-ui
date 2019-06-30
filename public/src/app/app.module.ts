@@ -13,6 +13,8 @@ import {FilesComponent} from "./box/files/files.component";
 import {HomeComponent} from "./box/home/home.component";
 import {SettingsComponent} from "./box/settings/settings.component";
 import { PasswordResetComponent } from './password-reset/password-reset.component';
+import {CookieService} from "ngx-cookie-service";
+import {FormsModule} from "@angular/forms";
 
 const config: SocketIoConfig = { url: 'http://localhost:8080', options: {} };
 
@@ -31,9 +33,10 @@ const config: SocketIoConfig = { url: 'http://localhost:8080', options: {} };
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     SocketIoModule.forRoot(config)
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
