@@ -15,6 +15,7 @@ import {SettingsComponent} from "./box/settings/settings.component";
 import { PasswordResetComponent } from './password-reset/password-reset.component';
 import {CookieService} from "ngx-cookie-service";
 import {FormsModule} from "@angular/forms";
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 const config: SocketIoConfig = { url: 'http://localhost:8080', options: {} };
 
@@ -34,6 +35,7 @@ const config: SocketIoConfig = { url: 'http://localhost:8080', options: {} };
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    NgbModule,
     SocketIoModule.forRoot(config)
   ],
   providers: [CookieService],

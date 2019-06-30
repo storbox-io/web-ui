@@ -1,3 +1,61 @@
-<p>
-  box works!
-</p>
+<nav class="navbar navbar-expand-lg p-0 fixed-top flex-md-nowrap shadow" id="nav">
+  <a class="navbar-brand ml-0 text-white" href="#" style="width: 16.67%; height: 55px; line-height: 45px; text-align: center; background: #00A1E8">storbox.io</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbar">
+    <ul class="navbar-nav mr-auto">
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="width: 500px">
+      </form>
+    </ul>
+    <ul class="navbar-nav pr-3">
+      <a ngbDropdown placement="left-bottom" class="nav-item">
+        <a class="nav-link" id="dropdownBasic2" ngbDropdownToggle>{{user.user.username}}</a>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic2" style="margin-left: -160px;">
+          <button ngbDropdownItem>Action - 1</button>
+          <button ngbDropdownItem>Another Action</button>
+          <button ngbDropdownItem>Something else is here</button>
+        </div>
+      </a>
+    </ul>
+  </div>
+</nav>
+
+<div class="row mt-5 pt-3">
+  <nav class="col-md-2 d-none d-md-block pl-3 mt-5 pt-3 bg-primary sidebar">
+    <div class="sidebar-sticky">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/box/home" routerLinkActive="active">
+            <i class="material-icons-outlined">home</i>
+            Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/box/files" routerLinkActive="active">
+            <i class="material-icons-outlined">insert_drive_file</i>
+            Your files
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/box/apps" routerLinkActive="active">
+            <i class="material-icons-outlined">apps</i>
+            Apps
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/bot/settings" routerLinkActive="active">
+            <i class="material-icons-outlined">settings</i>
+            Settings
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-5 py-4" style="margin-bottom: 120px;">
+    <router-outlet></router-outlet>
+  </main>
+</div>

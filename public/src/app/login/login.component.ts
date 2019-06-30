@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate([url]);
           console.log("navigate");
           this.cookie.set("token", msg.token, null, "/");
-        }, false);
+        });
       } else {
         this.error = true;
         this.password = '';
